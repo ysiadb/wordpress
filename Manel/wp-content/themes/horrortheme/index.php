@@ -5,7 +5,7 @@
     <body>
         <?php get_header();?>
 
-        <h1>TEST</h1>
+        <h1>Welcome</h1>
         
         <?php get_footer();?>
     </body>
