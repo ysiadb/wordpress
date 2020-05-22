@@ -10,9 +10,13 @@
         <a href="<?php echo home_url('/');?>">
             <img src="<?php echo get_template_directory_uri();?>/img/logo.jpeg" alt='Logo'>
         </a>
+
         <?php wp_nav_menu(array('theme_location' => 'main',
         'container' => 'ul' ,
         'menu_class' => 'site_hearder_menu')) ;?>
+
+        <?php if(is_active_sidebar('sidebar-1')):(dynamic_sidebar('sidebar-1'));endif?>
+
     </header>
 
     <?php wp_body_open(); ?>

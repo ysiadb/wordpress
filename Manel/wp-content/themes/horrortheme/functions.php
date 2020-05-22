@@ -8,4 +8,16 @@ register_nav_menus(array(
     'footer' => 'Bas de page' ,
 ));
 
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar', 'horrortheme' ),
+			'id'            => 'sidebar-1',
+			'description'   => __( 'Barre latéral', 'horrortheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+    );
+    
 /* */
