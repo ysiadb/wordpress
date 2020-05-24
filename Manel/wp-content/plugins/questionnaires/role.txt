@@ -1,5 +1,0 @@
-Créer plusieurs questionnaires
-Chaque questionnaire = 10 questions 
-Questions doivent apparaître au fur et à mesure
-Via panneaux d'administration => Ajouter des nouveaux questionnaires + questions
-Réorganiser l'ordre des questions (bonus)

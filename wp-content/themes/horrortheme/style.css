@@ -1,0 +1,47 @@
+/*
+Theme Name: Horror
+AUthor: Manel & Daisy
+Description: Theme d'Horreur
+Version: 1.0
+*/
+
+@font-face { 
+    font-family: Scary_Halloween; 
+    src: url(http://localhost/projets/wordpress/wp-content/themes/horrortheme/fonts/Scary_Halloween.ttf); 
+    font-weight: normal; 
+    }
+
+ @font-face { 
+        font-family: Secret_Midnight; 
+        src: url(http://localhost/projets/wordpress/wp-content/themes/horrortheme/fonts/Secret_Midnight.otf); 
+        font-weight: normal; 
+        }
+
+body
+{
+    background-color: black;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .header li {
+    float: left;
+  }
+  
+  .header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .header li a:hover {
+    background-color: #111;
+  }
