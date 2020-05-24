@@ -9,7 +9,8 @@
 	<div class="row">
 		<div class="container-fluid">
 			<div class="col-12" style="background-color: black">
-				<?php get_header();
+				<?php 
+				// get_header();
 				?>
 			</div>
 		</div>
@@ -26,7 +27,9 @@
 										<?php the_content(); ?>
 
 								<?php endwhile;
-								endif; ?>
+								endif; 
+									?>
+
 							</div>
 						</div>
 					</div>
@@ -52,7 +55,10 @@
 	</div>
 	<div class="row">
 		<div class="col-12">
-			<?php get_footer(); ?>
+			<?php 
+			// get_footer(); 
+
+			?>
 		</div>
 	</div>
 </body>
