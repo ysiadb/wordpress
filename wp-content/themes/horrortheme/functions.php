@@ -25,11 +25,12 @@ add_action('widgets_init', 'horror_widgets_init');
 /* */
 
 add_filter("login_redirect", "gkp_subscriber_login_redirect", 10, 3);
+
 function gkp_subscriber_login_redirect($redirect_to, $request, $user)
 {
-
+	global $wpdb;
 	if (is_array($user->roles))
-		if (in_array('subscriber', $user->roles)) return site_url('/welcome');
+		if (in_array('subscriber', $user->roles)) return site_url('/wordpress');
 
 	return home_url();
 }
@@ -39,45 +40,47 @@ function traitement_formulaire_subscriber()
 {
 
 	global $wpdb;
+	var_dump($_POST);
 
 	switch ($_POST) {
 
-		case isset($_POST['email']) && isset($_POST['selection']):
+		case isset($_POST['email']):
 
 			$newuser = $_POST['email'];
 			$userdata = array(
 				'user_login' =>  $newuser,
 				'user_url'   =>  'http://localhost/projets/wordpress',
-				'user_pass'  =>  NULL 
+				'user_pass'  =>  NULL
 			);
-			 
-			$user_id = wp_insert_user( $userdata );
+
+			$user_id = wp_insert_user($userdata);
+
+		case isset($_POST['selection']):
 
 			if ($_POST['selection'] == 'AnswerQuestion') {
 				$newquestion = $_POST['selection'];
 				$insertnewquestion = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}post");
-				$insertnewquestion =$wpdb->insert("");
-				
+				$insertnewquestion = $wpdb->insert("");
+
 				echo '<div><p>Hahahahahaha</p></div>';
 				wp_redirect('/projets/wordpress/index.php/welcome-answerer');
 			}
 
-		break;
 
-		case $_POST['selection'] == 'AskQuestion' :
-			wp_redirect('/projets/wordpress/index.php/welcome-asker');
-		break;
-
-
+			if ($_POST['selection'] == 'AskQuestion') {
+				wp_redirect('/projets/wordpress/index.php/welcome-asker');
+			}
+			break;
 	}
 
-	if (isset($_POST['email']) && isset($_POST['selection']) && isset($_POST['data'])) {
+	if (isset($_POST['selection']) && isset($_POST['data'])) {
 		if ($_POST['selection'] == 'AskQuestion') {
+			$wpdb->query();
 			wp_redirect('/projets/wordpress/index.php/welcome-asker');
 		}
-		if ($_POST['selection'] == 'AnswerQuestion') {
-			wp_redirect('/projets/wordpress/index.php/welcome-answerer');
-		}
+		// if ($_POST['selection'] == 'AnswerQuestion') {
+		// 	wp_redirect('/projets/wordpress/index.php/welcome-answerer');
+		// }
 	}
 }
 
